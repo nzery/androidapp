@@ -57,8 +57,7 @@ public class AsyncHttpURLConnection {
 
   private void sendHttpMessage() {
     try {
-      Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("192.168.11.12", 1080));
-      HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection(proxy);
+      HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
       byte[] postData = new byte[0];
       if (message != null) {
         postData = message.getBytes("UTF-8");

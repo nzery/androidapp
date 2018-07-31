@@ -165,8 +165,7 @@ public class RoomParametersFetcher {
       throws IOException, JSONException {
     List<PeerConnection.IceServer> turnServers = new ArrayList<>();
     Log.d(TAG, "Request TURN from: " + url);
-    Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("192.168.11.12", 1080));
-    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection(proxy);
+    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
     connection.setDoOutput(true);
     connection.setRequestProperty("REFERER", "https://appr.tc");
     connection.setConnectTimeout(TURN_HTTP_TIMEOUT_MS);
